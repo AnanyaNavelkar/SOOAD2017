@@ -1,10 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package login;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -17,73 +15,143 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-/**
- *
- * @author abha
- */
 public class Login extends Application {
     
+    private static final String USERNAME = "root";
+    private static final String PASSWORD = "";
+    private static final String CONN = "jdbc:mysql://localhost/ApplicationUser";
+    
+    /**
+     *
+     * @param args
+     * @throws SQLException
+     */
+    public static void main(String[] args) throws SQLException {
+        
+       // Class.forName(com.mysql.jdbc.Driver);
+        Connection con = null;
+        
+        try {
+            con = DriverManager.getConnection(CONN, USERNAME, PASSWORD);
+            System.out.println("Connected");
+            
+        }
+        
+        catch(SQLException e) {
+            System.err.print(e);
+        }
+        finally {
+            if(con != null) {
+                con.close();
+            }
+        }
+        launch(args);
+       }
+        
+
     @Override
     public void start(Stage primaryStage) {
-
-        primaryStage.setTitle("Welcome");
+        primaryStage.setTitle("EasyPayzee");
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
         grid.setHgap(10);
         grid.setVgap(10);
         grid.setPadding(new Insets(25, 25, 25, 25));
-        
-        
-        Text scenetitle = new Text("Welcome");
-        scenetitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
-        grid.add(scenetitle, 0, 0, 2, 1);
-        
 
-        Label userName = new Label("User Name:");
-        grid.add(userName, 0, 1);
+        Text signInTitle = new Text("Sign in (for existing users)");
+        signInTitle.setId("signin-text");
+        grid.add(signInTitle, 0, 0, 2, 1);
 
-        TextField userTextField = new TextField();
-        grid.add(userTextField, 1, 1);
-        
-        Label pw = new Label("Password:");
-        grid.add(pw, 0, 2);
+        Label userNameSignIn = new Label("Username/Mobile number:");
+        grid.add(userNameSignIn, 0, 1);
 
-        PasswordField pwBox = new PasswordField();
-        grid.add(pwBox, 1, 2);
-        
-        Button btn = new Button("Sign in");
+        TextField enterUserNameSignIn = new TextField();
+        grid.add(enterUserNameSignIn, 1, 1);
+
+        Label pwSignIn = new Label("Password:");
+        grid.add(pwSignIn, 0, 2);
+
+        PasswordField pwBoxSignIn = new PasswordField();
+        grid.add(pwBoxSignIn, 1, 2);
+
+        Button signInButton = new Button("Sign in");
         HBox hbBtn = new HBox(10);
         hbBtn.setAlignment(Pos.BOTTOM_RIGHT);
-        hbBtn.getChildren().add(btn);
-        grid.add(hbBtn, 1, 4);
-        
+        hbBtn.getChildren().add(signInButton);
+        grid.add(hbBtn, 1, 3);
+
         final Text actiontarget = new Text();
         grid.add(actiontarget, 1, 6);
+        actiontarget.setId("actiontarget");
         
-        btn.setOnAction(new EventHandler<ActionEvent>() {
- 
-        @Override
-        public void handle(ActionEvent e) {
-            actiontarget.setFill(Color.FIREBRICK);
-            actiontarget.setText("Sign in button pressed");
-        }
-    });
+        //---------------------------------------------------
+        
+        Text signUpTitle = new Text("Sign up (for new users)");
+        signUpTitle.setId("signup-text");
+        grid.add(signUpTitle, 3, 0, 2, 1);
+        
+        Label nameSignUp = new Label("Name:");
+        grid.add(nameSignUp, 3, 1);
+        
+        TextField enterNameSignUp = new TextField();
+        grid.add(enterNameSignUp, 4, 1);
+        
+        Label  mobileNumbeSignUp = new Label("Mobile Number:");
+        grid.add(mobileNumbeSignUp, 3, 2);
+        
+        TextField entermobileNumberSignUp = new TextField();
+        grid.add(entermobileNumberSignUp, 4, 2);
+        
+        Label emailIdSignUp = new Label("Email ID:");
+        grid.add(emailIdSignUp, 3, 3);
+        
+        TextField enterEmailIdSignUp = new TextField();
+        grid.add(enterEmailIdSignUp, 4, 3);
+        
+        Label passwordSignUp = new Label("Password:");
+        grid.add(passwordSignUp, 3, 4);
+        
+        PasswordField pwBoxSignUp = new PasswordField();
+        grid.add(pwBoxSignUp, 4, 4);
+        
+        Button signUpButton = new Button("Sign up");
+        HBox hbBtn1 = new HBox(10);
+        hbBtn1.setAlignment(Pos.BOTTOM_RIGHT);
+        hbBtn1.getChildren().add(signUpButton);
+        grid.add(hbBtn1, 4, 5);
+        
+        final Text actiontarget1 = new Text();
+        grid.add(actiontarget1, 1, 6);
+        actiontarget1.setId("actiontarget1");
+
+        signInButton.setOnAction(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent e) {
+                //actiontarget.setText(enterUserNameSignIn.getText());
+                
+                
+                
+            }
+        });
+        
+        signUpButton.setOnAction(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent e) {
+                actiontarget1.setText("Sign up button pressed");
+            }
+        });
+        
+        
+
 
         Scene scene = new Scene(grid, 300, 275);
+        primaryStage.setScene(scene);
+        scene.getStylesheets().add(Login.class.getResource("Login.css").toExternalForm());
         primaryStage.show();
     }
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        launch(args);
-    }
-    
 }
