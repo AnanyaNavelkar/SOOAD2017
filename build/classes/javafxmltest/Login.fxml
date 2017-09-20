@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="451.0" prefWidth="618.0" style="-fx-background-color: #20120F;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmltest.LoginController">
+   <children>
+      <AnchorPane layoutX="89.0" layoutY="96.0" prefHeight="284.0" prefWidth="447.0" style="-fx-background-color: #9C2827;" />
+      <JFXTextField id="userName" fx:id="userName" focusColor="#421616" layoutX="157.0" layoutY="131.0" prefHeight="32.0" prefWidth="299.0" promptText="Username " unFocusColor="#dff81f" />
+      <JFXPasswordField id="password" fx:id="password" focusColor="#421616" layoutX="160.0" layoutY="219.0" prefHeight="32.0" prefWidth="299.0" promptText="Password" unFocusColor="#eeee33" />
+      <JFXButton id="login" fx:id="login" buttonType="RAISED" layoutX="253.0" layoutY="317.0" prefHeight="32.0" prefWidth="108.0" style="-fx-background-color: #f0ff56;" text="LOGIN" textFill="#721b1b">
+         <font>
+            <Font name="FreeSerif" size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXButton id="login" fx:id="signUp" onAction="#viewregister" buttonType="RAISED" layoutX="482.0" layoutY="31.0" prefHeight="32.0" prefWidth="108.0" style="-fx-background-color: #f0ff56;" text="SIGNUP" textFill="#721b1b">
+         <font>
+            <Font name="FreeSerif" size="15.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="249.0" layoutY="31.0" text="EasyPayzee" textAlignment="CENTER" textFill="#e4c724">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
