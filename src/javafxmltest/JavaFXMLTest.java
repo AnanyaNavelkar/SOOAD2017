@@ -19,7 +19,7 @@ public class JavaFXMLTest extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("Register.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
         
         Scene scene = new Scene(root);
         
@@ -32,6 +32,7 @@ public class JavaFXMLTest extends Application {
      */
     public static void main(String[] args) {
         launch(args);
+        
     }
     
 }

@@ -10,6 +10,7 @@ import java.net.URL;
 import java.sql.*;
 import java.sql.Statement;
 import java.util.ResourceBundle;
+import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,6 +23,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.util.Duration;
 
 /**
  *
@@ -51,10 +53,19 @@ public class RegisterController implements Initializable {
                     + "(user_name, user_mobile, user_email, user_password, user_balance)"
                    + "values('"+name.getText()+"', '"+mobile.getText()+"', '"+email.getText()+"','"+password.getText()+"','"+balance.getText()+"')");
         
-         stmt.executeUpdate(sql);
         
+        name.setText("");
+        mobile.setText("");
+        email.setText("");
+        password.setText("");
+        balance.setText("");
+        
+        
+        stmt.executeUpdate(sql);
+       
+         
     }
-    
+   
     public void viewlogin() throws IOException 
     {
         
