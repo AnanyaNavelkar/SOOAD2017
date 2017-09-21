@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="JavaFXMLTest.jar" size="7811" download="eager" />
+    <jar href="JavaFXMLTest.jar" size="11667" download="eager" />
     <jar href="lib\jfoenix-1.8.0.jar" size="2370071" download="eager" />
     <jar href="lib\mysql-connector-java-5.1.44-bin.jar" size="999635" download="eager" />
   </resources>
