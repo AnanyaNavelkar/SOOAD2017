@@ -19,14 +19,14 @@ public class HomeController implements Initializable {
     /**
      * Initializes the controller class.
      */
-   private JavaFXMLTest application;
-    
+    private JavaFXMLTest application;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-    
-     public void setApp(JavaFXMLTest application){
+    }
+
+    public void setApp(JavaFXMLTest application) {
         this.application = application;
     }
 }

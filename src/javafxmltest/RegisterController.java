@@ -84,8 +84,7 @@ public class RegisterController extends AnchorPane implements Initializable {
                 count++;
             }
             if (count > 0) {
-                JavaFXMLTest.user_id = rs.getInt("uid");
-
+//                JavaFXMLTest.user_id = rs.getInt("uid");
                 System.out.println("LoggedIn");
                 application.userLogging();
             } else {

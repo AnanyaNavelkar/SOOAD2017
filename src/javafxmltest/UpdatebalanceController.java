@@ -25,21 +25,19 @@ public class UpdatebalanceController implements Initializable {
     /**
      * Initializes the controller class.
      */
-    
     @FXML
     private TextField amount;
     @FXML
     private TextField bankacc;
     @FXML
     private Label loggeduser_name;
-    
-    public void update() throws SQLException
-    {
+
+    public void update() throws SQLException {
         /*
         call verify
         call checkbalance
-        */
-        /*DBConnection conn =new DBConnection();   
+         */
+ /*DBConnection conn =new DBConnection();   
         Statement stmt=conn.connect().createStatement();
          ResultSet rs = stmt.executeQuery("select balance from user_info");
         //update user_info table
@@ -55,22 +53,19 @@ public class UpdatebalanceController implements Initializable {
         //insert transaction table
         String inserttrans="";*/
     }
-    
-    public void verify()
-    {
-        
+
+    public void verify() {
+
     }
-    
-    public void checkbalance()
-    {
-    
+
+    public void checkbalance() {
+
     }
-    
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-   
-    }    
-    
+
+    }
+
 }
