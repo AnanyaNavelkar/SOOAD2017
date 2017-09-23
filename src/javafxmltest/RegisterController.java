@@ -34,8 +34,6 @@ import javafx.util.Duration;
  *
  * @author Ananya
  */
-
-
 public class RegisterController extends AnchorPane implements Initializable {
 
     @FXML
@@ -49,14 +47,13 @@ public class RegisterController extends AnchorPane implements Initializable {
     @FXML
     private TextField loginUserName;
     @FXML
-    private PasswordField loginPassword;
+    private TextField loginPassword;
 
     private JavaFXMLTest application;
 
     public void registerOnClick() throws SQLException {
         DBConnection conn = new DBConnection();
         Statement stmt = conn.connect().createStatement();
-        
 
         String sql = ("insert into user_info"
                 + "(user_name, user_mobile, user_email, user_password)"
@@ -85,7 +82,7 @@ public class RegisterController extends AnchorPane implements Initializable {
             int count = 0;
             while (rs.next()) {
                 JavaFXMLTest.user_id = rs.getInt("uid");
-                System.out.println(JavaFXMLTest.user_id);
+
                 count++;
             }
             if (count > 0) {
@@ -110,7 +107,5 @@ public class RegisterController extends AnchorPane implements Initializable {
     public void setApp(JavaFXMLTest application) {
         this.application = application;
     }
-   
+
 }
-
-
