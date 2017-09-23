@@ -8,9 +8,10 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="JavaFXMLTest.jar" size="7811" download="eager" />
-    <jar href="lib\jfoenix-1.8.0.jar" size="2370071" download="eager" />
+    <jar href="JavaFXMLTest.jar" size="10980" download="eager" />
+    <jar href="lib\jfoenix.jar" size="2374273" download="eager" />
     <jar href="lib\mysql-connector-java-5.1.44-bin.jar" size="999635" download="eager" />
+    <jar href="lib\scenebuilder-all-8.3.0-all.jar" size="9570876" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="JavaFXMLTest" >
     <param name="requiredFXVersion" value="8.0+"/>
