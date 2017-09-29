@@ -6,24 +6,26 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="444.0" prefWidth="609.0" style="-fx-background-color: #20120F;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmltest.RegisterController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="444.0" prefWidth="609.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmltest.RegisterController">
     <children>
-        <AnchorPane layoutX="34.0" layoutY="71.0" prefHeight="285.0" prefWidth="538.0" style="-fx-background-color: #d13c25;">
+        <AnchorPane layoutX="34.0" layoutY="71.0" prefHeight="285.0" prefWidth="538.0" style="-fx-background-color: #d3d3d3;">
             <children>
-                <JFXTextField fx:id="mobile" focusColor="#dd2727" layoutX="171.0" layoutY="69.0" prefHeight="24.0" prefWidth="293.0" unFocusColor="#d1dd26" />
-                <JFXTextField fx:id="email" focusColor="#dd2727" layoutX="171.0" layoutY="118.0" prefHeight="24.0" prefWidth="293.0" unFocusColor="#d1dd26" />
-                <JFXTextField fx:id="name" focusColor="#dd2727" layoutX="171.0" layoutY="28.0" prefHeight="24.0" prefWidth="293.0" unFocusColor="#d1dd26" />     
-                <JFXPasswordField fx:id="password" focusColor="#dd2727" layoutX="171.0" layoutY="161.0" prefHeight="24.0" prefWidth="293.0" unFocusColor="#d1dd26" />
-                <Label alignment="CENTER" layoutX="22.0" layoutY="69.0" prefHeight="33.0" prefWidth="101.0" style="-fx-background-color: #7a2b1f;" text="Phone Number" textAlignment="CENTER" textFill="#f5f52c" />
-                <Label alignment="CENTER" layoutX="22.0" layoutY="26.0" prefHeight="33.0" prefWidth="101.0" style="-fx-background-color: #7a2b1f;" text="User Name" textAlignment="CENTER" textFill="#fbf42d" />
-                <Label alignment="CENTER" layoutX="22.0" layoutY="114.0" prefHeight="33.0" prefWidth="101.0" style="-fx-background-color: #7a2b1f;" text="Email ID" textFill="#f8c93c" />
-                <Label alignment="CENTER" layoutX="22.0" layoutY="161.0" prefHeight="33.0" prefWidth="101.0" style="-fx-background-color: #7a2b1f;" text="Password" textFill="#f8f355" />
-                <JFXButton fx:id="registerOnClick" buttonType="RAISED" layoutX="234.0" layoutY="242.0" onAction="#registerOnClick" prefHeight="33.0" prefWidth="115.0" ripplerFill="#f4f42c" style="-fx-background-color: #7a2b1f;" text="REGISTER" textFill="#e8fc13" />
+                <JFXTextField fx:id="mobile" focusColor="#dd2727" layoutX="171.0" layoutY="48.0" prefHeight="24.0" prefWidth="293.0" unFocusColor="#f8f8f8" />
+                <JFXTextField fx:id="email" focusColor="#dd2727" layoutX="171.0" layoutY="82.0" prefHeight="24.0" prefWidth="293.0" unFocusColor="WHITE" />
+                <JFXTextField fx:id="name" focusColor="#dd2727" layoutX="171.0" layoutY="15.0" prefHeight="24.0" prefWidth="293.0" unFocusColor="WHITE" />     
+                <JFXPasswordField fx:id="password" focusColor="#dd2727" layoutX="171.0" layoutY="118.0" prefHeight="24.0" prefWidth="293.0" unFocusColor="WHITE" />
+                <Label alignment="CENTER" layoutX="22.0" layoutY="44.0" prefHeight="33.0" prefWidth="101.0" style="-fx-background-color: #d3d3d3;" text="Phone Number" textAlignment="CENTER" />
+                <Label alignment="CENTER" layoutX="22.0" layoutY="11.0" prefHeight="33.0" prefWidth="101.0" style="-fx-background-color: #d3d3d3;" text="User Name" textAlignment="CENTER" />
+                <Label alignment="CENTER" layoutX="22.0" layoutY="78.0" prefHeight="33.0" prefWidth="101.0" style="-fx-background-color: #d3d3d3;" text="Email ID" />
+                <Label alignment="CENTER" layoutX="22.0" layoutY="114.0" prefHeight="33.0" prefWidth="101.0" style="-fx-background-color: #d3d3d3;" text="Password" />
+                <JFXButton fx:id="registerOnClick" buttonType="RAISED" layoutX="234.0" layoutY="242.0" onAction="#registerOnClick" prefHeight="33.0" prefWidth="115.0" ripplerFill="#f4f42c" style="-fx-background-color: blue;" text="REGISTER" textFill="#e8fc13" />
+            <Label alignment="CENTER" layoutX="22.0" layoutY="153.0" prefHeight="33.0" prefWidth="101.0" style="-fx-background-color: #d3d3d3;" text="Bank Account No." />
+            <Label alignment="CENTER" layoutX="22.0" layoutY="199.0" prefHeight="33.0" prefWidth="101.0" style="-fx-background-color: #d3d3d3;" text="Bank Name" />
+            <JFXTextField fx:id="bankacc" focusColor="#dd2727" layoutX="171.0" layoutY="157.0" prefHeight="24.0" prefWidth="293.0" unFocusColor="WHITE" />
+            <JFXTextField fx:id="bankname" focusColor="#dd2727" layoutX="171.0" layoutY="203.0" prefHeight="24.0" prefWidth="293.0" unFocusColor="WHITE" />
             </children>
         </AnchorPane>   
-        <JFXButton fx:id="loginOnClick" buttonType="RAISED" layoutX="496.0" layoutY="19.0" onAction="#loginOnClick" prefHeight="33.0" prefWidth="76.0" ripplerFill="#e8e829" style="-fx-background-color: #7a2b1f;" text="LOGIN" textFill="#fff426" />
+        <JFXButton fx:id="loginOnClick" buttonType="RAISED" layoutX="496.0" layoutY="19.0" onAction="#loginOnClick" prefHeight="33.0" prefWidth="76.0" ripplerFill="#e8e829" style="-fx-background-color: blue;" text="LOGIN" textFill="#fff426" />
         <JFXTextField fx:id="loginPassword" layoutX="332.0" layoutY="23.0" promptText="Password" />
         <JFXTextField fx:id="loginUserName" layoutX="178.0" layoutY="23.0" promptText="Username" />
     </children>

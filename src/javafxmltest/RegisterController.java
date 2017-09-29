@@ -29,6 +29,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  *
@@ -45,6 +46,10 @@ public class RegisterController extends AnchorPane implements Initializable {
     @FXML
     private PasswordField password;
     @FXML
+    private TextField bankacc;
+    @FXML
+    private TextField bankname;
+    @FXML
     private TextField loginUserName;
     @FXML
     private TextField loginPassword;
@@ -52,32 +57,26 @@ public class RegisterController extends AnchorPane implements Initializable {
     private JavaFXMLTest application;
 
     public void registerOnClick() throws SQLException {
-        DBConnection conn = new DBConnection();
-        Statement stmt = conn.connect().createStatement();
-
-        String sql = ("insert into user_info"
-                + "(user_name, user_mobile, user_email, user_password)"
-                + "values('" + name.getText() + "', '" + mobile.getText() + "', '" + email.getText() + "','" + password.getText() + "')");
-
-        name.setText("");
-        mobile.setText("");
-        email.setText("");
-        password.setText("");
-
-        Alert alert = new Alert(AlertType.INFORMATION);
-        alert.setTitle("EasyPayzee");
-        alert.setHeaderText("Thanks for registering!");
-        alert.setContentText("You have successfully registered");
-        alert.showAndWait();
-
-        stmt.executeUpdate(sql);
-
+        
+        //validate();
+        
+        
+        UserModel user =new UserModel();
+        
+        user.store_register_details(name.getText(),mobile.getText(),email.getText(),password.getText());
+        
+        BankModel bank =new BankModel();
+        
+        bank.generate_random_bankacc(email.getText(), bankacc.getText(), bankname.getText());
+        
+        
     }
 
     public void loginOnClick() throws IOException, SQLException, NullPointerException {
         try {
             DBConnection conn = new DBConnection();
             Statement stmt = conn.connect().createStatement();
+            
             ResultSet rs = stmt.executeQuery("select * from user_info where user_name='" + loginUserName.getText() + "' and user_password='" + loginPassword.getText() + "'");
             int count = 0;
             while (rs.next()) {
@@ -88,6 +87,7 @@ public class RegisterController extends AnchorPane implements Initializable {
             if (count > 0) {
 
                 System.out.println("LoggedIn");
+                
                 application.userLogging();
             } else {
                 System.out.println("NotRegistered");
