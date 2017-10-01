@@ -1,115 +1,82 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package javafxmltest;
-
+import java.io.IOException;
 import java.net.URL;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import static java.sql.Types.NULL;
-import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TextField;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.control.MenuItem;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 
-/**
- * FXML Controller class
- *
- * @author Ananya
- */
-public class HomeController implements Initializable {
+public class HomeController {
 
-    /**
-     * Initializes the controller class.
-     */
+  @FXML 
+  private MenuItem viewAccount;
+
+  @FXML 
+  private MenuItem close;
+
+  @FXML 
+  private MenuItem viewPayBill;
+
+    @FXML 
+  private MenuItem viewBookMovie;
     
-    @FXML
-    private TextField amount;
-    @FXML
-    private TextField bankacc;
-    @FXML
-    private TextField cvvno;
-    @FXML
-    private TextField bankname;
-    @FXML
-    private Tab update;
-    
-   private JavaFXMLTest application;
-   
-   
-   public void updateOnClick() throws SQLException //updatebalance
-    {
-        /*
-        call verify
-        call checkbalance
-        */
-        DBConnection conn =new DBConnection();   
-        Statement stmt=conn.connect().createStatement();
+      @FXML 
+  private MenuItem viewRechargeMobile;
+      
+     @FXML 
+  private MenuItem viewUpdateBalance;
         
-        
-         int count = 0;
-         ResultSet rs = stmt.executeQuery("select * from bank where acc_no='" + bankacc.getText() + "' and cvv='" + Integer.parseInt(cvvno.getText()) + "'and bank_name='" + bankname.getText() + "'");
-         while (rs.next()) {
-          
-                count++;
-            }
-            if (count > 0) {
-                Statement stmt1=conn.connect().createStatement();
-                ResultSet rs1 = stmt1.executeQuery("select * from user_info where uid= '" +JavaFXMLTest.user_id+ "'");
-                int amountWithdrawn = Integer.parseInt(amount.getText());
-                int amountUpdateUser;
-                if(rs1.getInt("user_balance") == NULL)
-                {
-                    amountUpdateUser =  amountWithdrawn;
-                }
-                else
-                    amountUpdateUser = rs1.getInt("user_balance") + amountWithdrawn;
-                 
-                String updateuser = ("update user_info"
-                + "set user_balance = '"+ amountUpdateUser +"'"
-                + "where uid='"+ JavaFXMLTest.user_id +"'");
-                stmt1.executeUpdate(updateuser);
-            }
-            
-            else {
-                System.out.println("Hmm");
-            }
-            
-        //update user_info table
-//        String updateuser= "update user_info"
-//                + "set balance = '"+rs.getInt("balance")+"'"
-//                + "where uid='"+  +"' ";
-//        
-//        //update bank table
-//        String updatebank= "update bank"
-//                + "set bank_balance = '"+rs.getInt("bank_balance")+" //'"
-//                + "where uid=";
-//        
-//        //insert transaction table
-//        String inserttrans="";*/
-    }
-    
-    public void verify() //updatebalance
-    {
-        
-    }
-    
-    public void checkbalance() //updatebalance
-    {
-    
-    }
-    
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
-    
-     public void setApp(JavaFXMLTest application){
-        this.application = application;
-    }
+        @FXML 
+  private MenuItem viewPayUser;
+  
+  @FXML
+  void viewAccount(ActionEvent event) throws IOException {
+    switchscene("myAccount.fxml");
+  }
+
+   @FXML
+  void viewPayBill(ActionEvent event) throws IOException {
+   switchscene("payBill.fxml"); 
+  }
+
+   @FXML
+  void viewBookMovie(ActionEvent event) throws IOException {
+   switchscene("bookMovie.fxml"); 
+  }
+
+   @FXML
+  void viewRechargeMobile(ActionEvent event) throws IOException {
+   switchscene("rechargeMobile.fxml"); 
+  }
+
+  @FXML
+  void viewUpdateBalance(ActionEvent event) throws IOException {
+      switchscene("updateBalance.fxml"); 
+  }
+
+ @FXML
+  void viewPayUser(ActionEvent event) throws IOException {
+   switchscene("payUser.fxml"); 
+  }
+  
+  void switchscene(String fxml) throws IOException
+  {
+      
+      URL paneUrl = getClass().getResource(fxml);
+      AnchorPane pane = FXMLLoader.load( paneUrl );
+      BorderPane border = JavaFXMLTest.getRoot();
+      border.setCenter(pane);
+      
+  }
+  
+  
+  @FXML
+  void close(ActionEvent event) {
+
+      //Close application
+
+  }
 }

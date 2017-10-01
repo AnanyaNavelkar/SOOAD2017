@@ -5,17 +5,20 @@
  */
 package javafxmltest;
 
+import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.io.InputStream;
+import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
+import javafx.scene.control.MenuBar;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 //import demo.model.User;
 //import demo.security.Authenticator;
 
@@ -31,9 +34,15 @@ public class JavaFXMLTest extends Application {
 
     public static int user_id;
 
+    private static BorderPane root = new BorderPane();
+    
+    public static BorderPane getRoot() {
+        return root;
+    }
+
     @Override
     public void start(Stage primaryStage) {
-       
+
         try {
             stage = primaryStage;
             stage.setTitle("EasyPayzee");
@@ -55,19 +64,26 @@ public class JavaFXMLTest extends Application {
         Application.launch(JavaFXMLTest.class, (java.lang.String[]) null);
     }
 
-    public void userLogging() {
+    public void userLogging() throws IOException {
 
         gotoHome();
 
     }
 
-    private void gotoHome() {
-        try {
-            HomeController home = (HomeController) replaceSceneContent("Home.fxml");
-            home.setApp(this);
-        } catch (Exception ex) {
-            Logger.getLogger(JavaFXMLTest.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    private void gotoHome() throws IOException {
+
+        URL menuBarUrl = getClass().getResource("Home.fxml");
+        MenuBar bar = FXMLLoader.load(menuBarUrl);
+
+        URL paneOneUrl = getClass().getResource("myAccount.fxml");
+        AnchorPane paneOne = FXMLLoader.load(paneOneUrl);
+
+        root.setTop(bar);
+        root.setCenter(paneOne);
+
+        Scene scene = new Scene(root, 640, 480);
+        stage.setScene(scene);
+
     }
 
     private void gotoRegister() {

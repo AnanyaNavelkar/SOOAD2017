@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+
+      <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmltest.HomeController">
+        <menus>
+          <Menu mnemonicParsing="false" text="My Account">
+            <items>
+              <MenuItem mnemonicParsing="false" text="AccountDetails" fx:id="viewAccount" onAction="#viewAccount"/>
+              <MenuItem mnemonicParsing="false" text="Close" fx:id="close" onAction="#close"/>
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Services">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Pay Electricity Bill" fx:id="viewPayBill" onAction="#viewPayBill"/>
+                  <MenuItem mnemonicParsing="false" text="Book a Movie" fx:id="viewBookMovie" onAction="#viewBookMovie"/>
+                  <MenuItem mnemonicParsing="false" text="Recharge your Mobile balance" fx:id="viewRechargeMobile" onAction="#viewRechargeMobile"/>
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Update Account">
+              <items>
+                <MenuItem mnemonicParsing="false" text="UpdateEasyPayzeeBalance" fx:id="viewUpdateBalance" onAction="#viewUpdateBalance"/>
+                <MenuItem mnemonicParsing="false" text="Pay another user" fx:id="viewPayUser" onAction="#viewPayUser"/>
+              </items>
+            </Menu>
+        </menus>
+      </MenuBar>
