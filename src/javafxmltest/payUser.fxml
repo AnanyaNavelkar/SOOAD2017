@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmltest.PayUserController">
   <children>
     <Label layoutX="14.0" layoutY="53.0" prefHeight="78.0" prefWidth="305.0" text="Username/Mobile/Email Id of the User">
       <font>
@@ -19,7 +19,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="amountTransferred" layoutX="337.0" layoutY="199.0" prefHeight="25.0" prefWidth="278.0" />
+      <JFXTextField fx:id="amount" layoutX="337.0" layoutY="199.0" prefHeight="25.0" prefWidth="278.0" />
       <JFXButton buttonType="RAISED" layoutX="277.0" layoutY="268.0" onAction="#payUser" prefHeight="50.0" prefWidth="121.0" style="-fx-background-color: blue;" text="Pay!" textFill="#fffbfb">
          <font>
             <Font size="24.0" />

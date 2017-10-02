@@ -29,19 +29,20 @@ public class PayUserController implements Initializable {
     @FXML
     private JFXTextField username;
     @FXML
-    private JFXTextField amountTransferred;
+    private JFXTextField amount;
     
     public void payUser() throws SQLException {
-//     DBConnection conn = new DBConnection();
-//     Statement stmt = conn.connect().createStatement();
-//            
-//     ResultSet rs = stmt.executeQuery("");
-//     while(rs.next())
-//     {
-//         System.out.println(rs.getInt("user_balance"));
-//         int bal = rs.getInt("user_balance");
-//         accountBalance.setText(Integer.toString(bal));
-//     }
+
+
+    try {
+        PayUserModel pay = new PayUserModel();
+        pay.updateInfo(username.getText(), amount.getText());
+    }
+    catch(Exception e)
+    {
+        System.out.println(e);
+    }
+    
      }
     
     @Override

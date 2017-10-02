@@ -17,7 +17,7 @@ import javafx.scene.control.Alert;
  * @author sanjay
  */
 public class TransactionModel {
-    public void updateTransaction(String amount) throws SQLException
+    public void updateTransaction(int amount, char type, String service_type) throws SQLException
     {
         DBConnection conn1 =new DBConnection();   
             Statement stmt1=conn1.connect().createStatement();
@@ -27,7 +27,7 @@ public class TransactionModel {
             String formatted = format1.format(cal.getTime());
             String transactionUpdate = ("insert into transaction"
                 + "(uid, amount, service_type, type_of_tran, date)"
-                + "values('" + JavaFXMLTest.user_id + "', '" + Integer.parseInt(amount) + "', 'updateBalance','w', '" +formatted+ "')");
+                + "values('" + JavaFXMLTest.user_id + "', '" + amount + "', '" +service_type+ "','" +type+ "', '" +formatted+ "')");
                 stmt1.executeUpdate(transactionUpdate);
     }
 }

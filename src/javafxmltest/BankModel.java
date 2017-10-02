@@ -49,7 +49,7 @@ public class BankModel {
         
     }
     
-    public void updateBankBalance(String amount) throws SQLException
+    public void updateBankBalance(int amount) throws SQLException
     {
          
             DBConnection conn1 =new DBConnection();   
@@ -65,7 +65,7 @@ public class BankModel {
          {
              bank_bal = rs1.getInt("bank_balance");
          }
-            bank_updated = bank_bal - Integer.parseInt(amount); 
+            bank_updated = bank_bal - amount; 
             System.out.println(bank_updated);
             
         String updateuser= "update bank set bank_balance = '"+bank_updated+"' where uid= '"+ JavaFXMLTest.user_id +"' ";

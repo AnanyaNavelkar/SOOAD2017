@@ -33,7 +33,7 @@ public class UpdateBalanceModel implements Initializable {
             {
                 try {
                     UserModel user = new UserModel();
-                user.updateUserBalance(amount);
+                user.updateUserBalance(Integer.parseInt(amount),JavaFXMLTest.user_id);
                 }
                 catch(Exception e)
                 {
@@ -42,7 +42,7 @@ public class UpdateBalanceModel implements Initializable {
                 
                 try {
                     BankModel bank = new BankModel();
-                bank.updateBankBalance(amount);
+                bank.updateBankBalance(Integer.parseInt(amount));
                 }
                 catch(Exception e)
                 {
@@ -54,7 +54,7 @@ public class UpdateBalanceModel implements Initializable {
             
         try {
             TransactionModel transaction = new TransactionModel();
-                transaction.updateTransaction(amount);
+                transaction.updateTransaction(Integer.parseInt(amount),'w', "updateBalance");
            
         }
         catch(Exception e)

@@ -36,28 +36,41 @@ public class UserModel {
         
     }
    
-   public void updateUserBalance(String amount) throws SQLException
+   public void updateUserBalance(int amount, int uid) throws SQLException
    {
        
             DBConnection conn =new DBConnection();   
         Statement stmt=conn.connect().createStatement();
         
-         ResultSet rs = stmt.executeQuery("select * from user_info where uid='" +JavaFXMLTest.user_id+ "'");
+         ResultSet rs = stmt.executeQuery("select * from user_info where uid='" +uid+ "'");
 //         System.out.println(rs.next());
          int user_bal=0;
         int user_updated;
         
-       System.out.println(JavaFXMLTest.user_id);
+       
          while(rs.next())
          {
              user_bal = rs.getInt("user_balance");
          }
-            user_updated = user_bal + Integer.parseInt(amount); 
+            user_updated = user_bal + amount; 
             System.out.println(user_updated);
             //update user_info table
-        String updateuser= "update user_info set user_balance = '"+user_updated+"' where uid= '"+ JavaFXMLTest.user_id +"' ";
+        String updateuser= "update user_info set user_balance = '"+user_updated+"' where uid= '"+ uid +"' ";
         stmt.executeUpdate(updateuser);
         
+   }
+   
+   public int selectUser(String username) throws SQLException
+   {
+        DBConnection conn =new DBConnection();   
+        Statement stmt=conn.connect().createStatement();
+        ResultSet rs = stmt.executeQuery("select * from user_info where user_name='" +username+ "' or user_mobile='" +username+ "' or user_email='" +username+ "'");
+        int uid=0;
+        while(rs.next())
+        {
+            uid = rs.getInt("uid");
+        }
+        return uid;
    }
     
 }
