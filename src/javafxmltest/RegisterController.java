@@ -69,7 +69,12 @@ public class RegisterController extends AnchorPane implements Initializable {
         
         bank.generate_random_bankacc(email.getText(), bankacc.getText(), bankname.getText());
         
-        
+        name.setText("");
+        mobile.setText("");
+        email.setText("");
+        password.setText("");
+        bankacc.setText("");
+        bankname.setText("");
     }
 
     public void loginOnClick() throws IOException, SQLException, NullPointerException {

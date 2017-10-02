@@ -24,8 +24,8 @@ public class UserModel {
         
         
         String sqluser_info = ("insert into user_info"
-                + "(user_name, user_mobile, user_email, user_password)"
-                + "values('" + name + "', '" + mobile + "', '" + email + "','" + password + "')");
+                + "(user_name, user_mobile, user_email, user_password, user_balance)"
+                + "values('" + name + "', '" + mobile + "', '" + email + "','" + password + "', '" +100+ "')");
         
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("EasyPayzee");

@@ -5,6 +5,7 @@
  */
 package javafxmltest;
 
+import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,6 +13,7 @@ import java.sql.Statement;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
@@ -26,45 +28,25 @@ public class UpdatebalanceController implements Initializable {
      * Initializes the controller class.
      */
     
+    
     @FXML
-    private TextField amount;
+    private JFXTextField amount;
     @FXML
-    private TextField bankacc;
+    private JFXTextField bankacc;
     @FXML
-    private Label loggeduser_name;
+    private JFXTextField cvv;
+    @FXML
+    private JFXTextField bankname;
+//    @FXML
+//    private Label loggeduser_name;
     
     public void update() throws SQLException
     {
-        /*
-        call verify
-        call checkbalance
-        */
-        /*DBConnection conn =new DBConnection();   
-        Statement stmt=conn.connect().createStatement();
-         ResultSet rs = stmt.executeQuery("select balance from user_info");
-        //update user_info table
-        String updateuser= "update user_info"
-                + "set balance = '"+rs.getInt("balance")+"'"
-                + "where uid='"+  +"' ";
-        
-        //update bank table
-        String updatebank= "update bank"
-                + "set bank_balance = '"+rs.getInt("bank_balance")+" //'"
-                + "where uid=";
-        
-        //insert transaction table
-        String inserttrans="";*/
-    }
-    
-    public void verify()
-    {
+        UpdateBalanceModel updateUserAndBank = new UpdateBalanceModel();
+        updateUserAndBank.updateInfo(amount.getText(), bankacc.getText(), cvv.getText(), bankname.getText());
         
     }
-    
-    public void checkbalance()
-    {
-    
-    }
+
     
     
     @Override

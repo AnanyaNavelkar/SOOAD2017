@@ -62,6 +62,7 @@ public class JavaFXMLTest extends Application {
     public static void main(String[] args) {
 
         Application.launch(JavaFXMLTest.class, (java.lang.String[]) null);
+        
     }
 
     public void userLogging() throws IOException {
