@@ -28,13 +28,14 @@ public class PayUserModel implements Initializable {
 
         public void updateInfo(String username, String amount) throws SQLException
         {
+            int uid = 0;
             if(checkBalance(amount))
             {
                 try {
                     UserModel user = new UserModel();
                     user.updateUserBalance(-Integer.parseInt(amount),JavaFXMLTest.user_id);
                     UserModel user1 = new UserModel();
-                    int uid = user1.selectUser(username);
+                    uid = user1.selectUser(username);
                     user1.updateUserBalance(Integer.parseInt(amount), uid);
                 }
                 catch(Exception e)
@@ -44,7 +45,7 @@ public class PayUserModel implements Initializable {
                 
                 try {
                         TransactionModel transaction = new TransactionModel();
-                        transaction.updateTransaction(Integer.parseInt(amount),'d', "payUser");
+                        transaction.updateTransactionPayUser(Integer.parseInt(amount),'-', "payUser", uid);
 
                 }
                 

@@ -54,7 +54,7 @@ public class UpdateBalanceModel implements Initializable {
             
         try {
             TransactionModel transaction = new TransactionModel();
-                transaction.updateTransaction(Integer.parseInt(amount),'w', "updateBalance");
+                transaction.updateTransaction(Integer.parseInt(amount),'+', "updateBalance");
            
         }
         catch(Exception e)
