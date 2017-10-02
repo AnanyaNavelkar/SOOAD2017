@@ -48,4 +48,31 @@ public class BankModel {
 
         
     }
-}
+    
+    public void updateBankBalance(String amount) throws SQLException
+    {
+         
+            DBConnection conn1 =new DBConnection();   
+            Statement stmt1=conn1.connect().createStatement();
+        
+         ResultSet rs1 = stmt1.executeQuery("select * from bank where uid='" +JavaFXMLTest.user_id+ "'");
+//         System.out.println(rs.next());
+         int bank_bal=0;
+        int bank_updated;
+        
+       System.out.println(JavaFXMLTest.user_id);
+         while(rs1.next())
+         {
+             bank_bal = rs1.getInt("bank_balance");
+         }
+            bank_updated = bank_bal - Integer.parseInt(amount); 
+            System.out.println(bank_updated);
+            
+        String updateuser= "update bank set bank_balance = '"+bank_updated+"' where uid= '"+ JavaFXMLTest.user_id +"' ";
+        stmt1.executeUpdate(updateuser);
+         
+         }
+       
+    }
+    
+

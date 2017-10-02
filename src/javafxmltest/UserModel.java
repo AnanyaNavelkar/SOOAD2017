@@ -35,5 +35,29 @@ public class UserModel {
         stmt.executeUpdate(sqluser_info);
         
     }
+   
+   public void updateUserBalance(String amount) throws SQLException
+   {
+       
+            DBConnection conn =new DBConnection();   
+        Statement stmt=conn.connect().createStatement();
+        
+         ResultSet rs = stmt.executeQuery("select * from user_info where uid='" +JavaFXMLTest.user_id+ "'");
+//         System.out.println(rs.next());
+         int user_bal=0;
+        int user_updated;
+        
+       System.out.println(JavaFXMLTest.user_id);
+         while(rs.next())
+         {
+             user_bal = rs.getInt("user_balance");
+         }
+            user_updated = user_bal + Integer.parseInt(amount); 
+            System.out.println(user_updated);
+            //update user_info table
+        String updateuser= "update user_info set user_balance = '"+user_updated+"' where uid= '"+ JavaFXMLTest.user_id +"' ";
+        stmt.executeUpdate(updateuser);
+        
+   }
     
 }

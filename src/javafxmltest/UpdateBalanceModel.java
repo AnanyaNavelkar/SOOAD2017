@@ -32,75 +32,30 @@ public class UpdateBalanceModel implements Initializable {
             if(verifyBankDetails(bankacc, cvv, bankname) == 1 && checkBalance(amount) == 3)
             {
                 try {
-            DBConnection conn =new DBConnection();   
-        Statement stmt=conn.connect().createStatement();
-        
-         ResultSet rs = stmt.executeQuery("select * from user_info where uid='" +JavaFXMLTest.user_id+ "'");
-//         System.out.println(rs.next());
-         int user_bal=0;
-        int user_updated;
-        
-       System.out.println(JavaFXMLTest.user_id);
-         while(rs.next())
-         {
-             user_bal = rs.getInt("user_balance");
-         }
-            user_updated = user_bal + Integer.parseInt(amount); 
-            System.out.println(user_updated);
-            //update user_info table
-        String updateuser= "update user_info set user_balance = '"+user_updated+"' where uid= '"+ JavaFXMLTest.user_id +"' ";
-        stmt.executeUpdate(updateuser);
-         
-         
-         }
-         
-        //insert transaction table
-        /*String inserttrans="";*/
-        
-        
-        catch(Exception e)
-        {
-            System.out.println(e);
-        }
-            
-            try {
-            DBConnection conn1 =new DBConnection();   
-            Statement stmt1=conn1.connect().createStatement();
-        
-         ResultSet rs1 = stmt1.executeQuery("select * from bank where uid='" +JavaFXMLTest.user_id+ "'");
-//         System.out.println(rs.next());
-         int bank_bal=0;
-        int bank_updated;
-        
-       System.out.println(JavaFXMLTest.user_id);
-         while(rs1.next())
-         {
-             bank_bal = rs1.getInt("bank_balance");
-         }
-            bank_updated = bank_bal - Integer.parseInt(amount); 
-            System.out.println(bank_updated);
-            //update user_info table
-        String updateuser= "update bank set bank_balance = '"+bank_updated+"' where uid= '"+ JavaFXMLTest.user_id +"' ";
-        stmt1.executeUpdate(updateuser);
-         
-         }
-       
-        catch(Exception e)
-        {
-            System.out.println(e);
-        }
+                    UserModel user = new UserModel();
+                user.updateUserBalance(amount);
+                }
+                catch(Exception e)
+                {
+                    System.out.println(e);
+                }
+                
+                try {
+                    BankModel bank = new BankModel();
+                bank.updateBankBalance(amount);
+                }
+                catch(Exception e)
+                {
+                    System.out.println(e);
+                }
+                
+                
+                
             
         try {
-            DBConnection conn1 =new DBConnection();   
-            Statement stmt1=conn1.connect().createStatement();
-            Calendar cal = Calendar.getInstance();
-            cal.add(Calendar.DATE, 1);
-            SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
-            String formatted = format1.format(cal.getTime());
-            String transactionUpdate = ("insert into transaction"
-                + "(uid, amount, service_type, type_of_tran, date)"
-                + "values('" + JavaFXMLTest.user_id + "', '" + Integer.parseInt(amount) + "', 'updateBalance','w', '" +formatted+ "')");
-                stmt1.executeUpdate(transactionUpdate);
+            TransactionModel transaction = new TransactionModel();
+                transaction.updateTransaction(amount);
+           
         }
         catch(Exception e)
         {
