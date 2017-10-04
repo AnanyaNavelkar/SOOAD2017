@@ -13,47 +13,41 @@ import java.sql.Statement;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
 
 /**
  * FXML Controller class
  *
  * @author Ananya
  */
-public class UpdatebalanceController implements Initializable {
+public class PayUserController implements Initializable {
 
     /**
      * Initializes the controller class.
      */
     
-    
+    @FXML
+    private JFXTextField username;
     @FXML
     private JFXTextField amount;
-    @FXML
-    private JFXTextField bankacc;
-    @FXML
-    private PasswordField cvv;
-    @FXML
-    private JFXTextField bankname;
-//    @FXML
-//    private Label loggeduser_name;
     
-    public void update() throws SQLException
-    {
-        UpdateBalanceModel updateUserAndBank = new UpdateBalanceModel();
-        updateUserAndBank.updateInfo(amount.getText(), bankacc.getText(), cvv.getText(), bankname.getText());
-        
-    }
+    public void payUser() throws SQLException {
 
+
+    try {
+        PayUserModel pay = new PayUserModel();
+        pay.updateInfo(username.getText(), amount.getText());
+    }
+    catch(Exception e)
+    {
+        System.out.println(e);
+    }
     
+     }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-   
     }    
     
 }

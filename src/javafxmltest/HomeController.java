@@ -5,6 +5,7 @@ import java.net.URL;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Alert;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -13,9 +14,11 @@ public class HomeController {
 
   @FXML 
   private MenuItem viewAccount;
+ @FXML 
+  private MenuItem viewTransaction;
 
   @FXML 
-  private MenuItem close;
+  private MenuItem Logout;
 
   @FXML 
   private MenuItem viewPayBill;
@@ -39,7 +42,7 @@ public class HomeController {
 
    @FXML
   void viewPayBill(ActionEvent event) throws IOException {
-   switchscene("payBill.fxml"); 
+   switchscene("Electricity.fxml"); 
   }
 
    @FXML
@@ -61,7 +64,22 @@ public class HomeController {
   void viewPayUser(ActionEvent event) throws IOException {
    switchscene("payUser.fxml"); 
   }
-  
+  @FXML
+  void Logout(ActionEvent event) throws IOException {
+
+       //switchscene("Register.fxml");
+       JavaFXMLTest j= new JavaFXMLTest();
+       j.start(JavaFXMLTest.stage);
+       popupLogout();
+
+  }
+  @FXML
+  void viewTransaction(ActionEvent event) throws IOException {
+
+       switchscene("transaction.fxml");
+       
+
+  }
   void switchscene(String fxml) throws IOException
   {
       
@@ -71,12 +89,16 @@ public class HomeController {
       border.setCenter(pane);
       
   }
-  
-  
-  @FXML
-  void close(ActionEvent event) {
-
-      //Close application
-
+  void popupLogout()
+  {
+                System.out.println("Logged Out");
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("EasyPayzee");
+                alert.setHeaderText("Logged Out!");
+                alert.setContentText("Thank you for using EasyPayzee. To continue using our services, Login");
+                alert.showAndWait();
   }
+  
+  
+  
 }

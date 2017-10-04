@@ -24,7 +24,7 @@ public class BankModel {
        
         ResultSet rs = stmt.executeQuery("select * from user_info where user_email= '" + email + "'");
          
-        int randomNumBal = ThreadLocalRandom.current().nextInt(1000, 20001);
+        int randomNumBal = ThreadLocalRandom.current().nextInt(10000, 20001);
         int randomNumCvv = ThreadLocalRandom.current().nextInt(100, 1000);
                 
               try {
@@ -48,4 +48,31 @@ public class BankModel {
 
         
     }
-}
+    
+    public void updateBankBalance(int amount) throws SQLException
+    {
+         
+            DBConnection conn1 =new DBConnection();   
+            Statement stmt1=conn1.connect().createStatement();
+        
+         ResultSet rs1 = stmt1.executeQuery("select * from bank where uid='" +JavaFXMLTest.user_id+ "'");
+//         System.out.println(rs.next());
+         int bank_bal=0;
+        int bank_updated;
+        
+       System.out.println(JavaFXMLTest.user_id);
+         while(rs1.next())
+         {
+             bank_bal = rs1.getInt("bank_balance");
+         }
+            bank_updated = bank_bal - amount; 
+            System.out.println(bank_updated);
+            
+        String updateuser= "update bank set bank_balance = '"+bank_updated+"' where uid= '"+ JavaFXMLTest.user_id +"' ";
+        stmt1.executeUpdate(updateuser);
+         
+         }
+       
+    }
+    
+

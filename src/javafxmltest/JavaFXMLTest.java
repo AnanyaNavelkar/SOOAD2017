@@ -28,7 +28,7 @@ import javafx.scene.layout.BorderPane;
  */
 public class JavaFXMLTest extends Application {
 
-    private Stage stage;
+    public static Stage stage;
     private final double MINIMUM_WINDOW_WIDTH = 390.0;
     private final double MINIMUM_WINDOW_HEIGHT = 500.0;
 

@@ -30,6 +30,8 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -52,7 +54,17 @@ public class RegisterController extends AnchorPane implements Initializable {
     @FXML
     private TextField loginUserName;
     @FXML
-    private TextField loginPassword;
+    private PasswordField loginPassword;
+   //  @FXML 
+   // private Label incorrect;
+      @FXML 
+    private Label hoverNo;
+       @FXML 
+    private Label hoverId;
+        @FXML 
+    private Label hoverName;
+     @FXML 
+    private Label hoverAccount;
 
     private JavaFXMLTest application;
 
@@ -60,17 +72,142 @@ public class RegisterController extends AnchorPane implements Initializable {
         
         //validate();
         
-        
-        UserModel user =new UserModel();
+         int i= validatePhone();
+         int j=validateEmail();
+         int k=validateBank();
+         int l=validateBankName();
+         int m=userExists();
+         if(i==1 && j==1 &&k ==1 && l==1 && m==0)
+         {
+         UserModel user =new UserModel();
         
         user.store_register_details(name.getText(),mobile.getText(),email.getText(),password.getText());
         
         BankModel bank =new BankModel();
         
         bank.generate_random_bankacc(email.getText(), bankacc.getText(), bankname.getText());
-        
-        
+        successfulRegister();
+        clearFields();
+        //incorrect.setOpacity(0);
+         }
+         else if (i==0||j==0||k==0||l==0)
+         {
+           failurePopup();
+           // animateMessage();
+            mobile.setText("");
+            email.setText("");
+            bankname.setText("");
+            bankacc.setText("");   
+         }
+         else if(m==1)
+         {
+          System.out.println("Existing");
+          ExistingPopup();
+         }
+         
     }
+    public int userExists() throws SQLException
+    {
+       UserModel u= new UserModel();
+       return(u.ExistingUser(mobile.getText(),email.getText(),bankacc.getText(),bankname.getText()));
+       
+    
+    }
+    public int validatePhone()
+    {
+boolean isValid = false;
+
+        /* Examples: Matches following phone numbers:
+         (123)456-7890, 123-456-7890, 1234567890, (123)-456-7890
+
+*/
+//Initialize reg ex for phone number. 
+   String expression = "^(\\+91[\\-\\s]?)?[0]?(91)?[789]\\d{9}$";
+   CharSequence inputStr = mobile.getText();
+   Pattern pattern = Pattern.compile(expression);
+   Matcher matcher = pattern.matcher(inputStr);
+    if(matcher.matches()){
+       isValid = true;
+       return 1;
+     }
+   else{
+   System.out.println("Incorrect Phone");
+   hoverNo.setText("Invalid Format");
+   return 0;
+      }
+
+   }
+    
+    public  int validateEmail(){
+/*
+Email format: A valid email address will have following format:
+        [\\w\\.-]+: Begins with word characters, (may include periods and hypens).
+	@: It must have a '@' symbol after initial characters.
+	([\\w\\-]+\\.)+: '@' must follow by more alphanumeric characters (may include hypens.).
+This part must also have a "." to separate domain and subdomain names.
+	[A-Z]{2,4}$ : Must end with two to four alaphabets.
+(This will allow domain names with 2, 3 and 4 characters e.g pa, com, net, wxyz)
+
+Examples: Following email addresses will pass validation
+abc@xyz.net; ab.c@tx.gov
+*/
+
+//Initialize reg ex for email.
+String expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$";
+CharSequence inputStr = email.getText();
+Pattern pattern = Pattern.compile(expression,Pattern.CASE_INSENSITIVE);
+Matcher matcher = pattern.matcher(inputStr);
+if(matcher.matches()){
+return 1;
+}
+else{
+System.out.println("Incorrect Email");
+hoverId.setText("Invalid Email ID");
+return 0;
+}
+}
+    
+    public int validateBank()
+            {
+            String expression = "^[0-9]{10}+$";
+CharSequence inputStr = bankacc.getText();
+Pattern pattern = Pattern.compile(expression,Pattern.CASE_INSENSITIVE);
+Matcher matcher = pattern.matcher(inputStr);
+if(matcher.matches()){
+return 1;
+}
+else{
+System.out.println("Invalid account number");
+hoverAccount.setText("Invalid Account Number");
+return 0;
+}
+                
+            }
+    
+     public int validateBankName()
+            {
+            String expression = "^[\\p{L} .'-]+$";
+            CharSequence inputStr = bankname.getText();
+            Pattern pattern = Pattern.compile(expression,Pattern.CASE_INSENSITIVE);
+            Matcher matcher = pattern.matcher(inputStr);
+            if(matcher.matches()){
+            return 1;
+             }
+                 else{
+                 System.out.println("Invalid bank name");
+                 hoverName.setText("Invalid Bank Name");
+                 return 0;
+                   }
+            }
+          /*  private void animateMessage() {
+        FadeTransition ft = new FadeTransition(Duration.millis(1000), incorrect);
+        ft.setFromValue(0.0);
+        ft.setToValue(1);
+        ft.play();
+    }*/
+    
+
+            
 
     public void loginOnClick() throws IOException, SQLException, NullPointerException {
         try {
@@ -98,7 +235,43 @@ public class RegisterController extends AnchorPane implements Initializable {
         }
 
     }
+    public void failurePopup()
+    {
+     Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("EasyPayzee");
+        alert.setHeaderText("Oops!Unsuccessful Register");
+        alert.setContentText("Kindl check the details filled while registering and try again");
+        alert.showAndWait();
+    
+    }
+    public void clearFields(){        
+            mobile.setText("");
+            email.setText("");
+            bankname.setText("");
+            bankacc.setText(""); 
+            name.setText("");
+            password.setText("");
+            hoverAccount.setText("");
+            hoverName.setText("");
+            hoverNo.setText("");
+            hoverId.setText("");
+            
 
+    }
+    public void successfulRegister(){   
+    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("EasyPayzee");
+        alert.setHeaderText("Congratulations");
+        alert.setContentText("You have just earned Rs 100 for registering with us!Welcome to our community");
+        alert.showAndWait();
+    }
+    public void ExistingPopup(){   
+    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("EasyPayzee");
+        alert.setHeaderText("Already Registered!");
+        alert.setContentText("Looks like you have already registered.To use our services, Login.");
+        alert.showAndWait();
+    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         System.out.println("LoadingRegisterView");

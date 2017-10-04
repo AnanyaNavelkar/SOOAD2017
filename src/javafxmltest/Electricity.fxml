@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="480.0" prefWidth="640.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111" fx:controller="javafxmltest.ElectricityController">
+   <children>
+      <Label layoutX="62.0" layoutY="76.0" text="Bill Number">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="62.0" layoutY="127.0" text="Bill Amount">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <JFXTextField id="billNo" fx:id="billNo" focusColor="#ff2222" layoutX="218.0" layoutY="77.0" prefHeight="25.0" prefWidth="288.0" />
+      <JFXButton buttonType="RAISED" layoutX="294.0" layoutY="334.0" onAction="#PayBill" prefHeight="41.0" prefWidth="94.0" style="-fx-background-color: blue;" text="Pay Bill" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </JFXButton>
+      <JFXTextField fx:id="billAmount" focusColor="#f11010" layoutX="218.0" layoutY="128.0" prefHeight="25.0" prefWidth="288.0" />
+      <JFXButton buttonType="RAISED" layoutX="266.0" layoutY="274.0" onAction="#KnowBill" prefHeight="41.0" prefWidth="155.0" style="-fx-background-color: blue;" text="Know your bill" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </JFXButton>
+      <Label fx:id="msg" layoutX="116.0" layoutY="222.0" prefHeight="27.0" prefWidth="443.0" />
+   </children>
+</AnchorPane>
