@@ -128,9 +128,57 @@ public class UserModel {
        }
        else
            return 1;
-       
-       
     
    }
+   
+   public boolean checkCorrectPassword(String password) throws SQLException {
+       try {
+           DBConnection conn = new DBConnection();
+           Statement stmt = conn.connect().createStatement();
+            
+            ResultSet rs = stmt.executeQuery("select user_password from user_info where uid='" + JavaFXMLTest.user_id + "'");
+            while(rs.next())
+            {
+                System.out.println(rs.getString("user_password"));
+                System.out.println(password);
+               if(rs.getString("user_password").equals(password))
+                   return true;
+               
+            }
+            
+       }
+       catch(Exception e)
+       {
+           System.out.println(e);
+       }
+       return false;
+   }
+   
+   public void change_user_name(String usernameNew) throws SQLException {
+       try {
+           DBConnection conn = new DBConnection();
+           Statement stmt = conn.connect().createStatement();
+           String query = "update user_info set user_name = '"+usernameNew+"' where uid= '"+ JavaFXMLTest.user_id +"' ";;
+           stmt.executeUpdate(query);
+       }
+       catch(Exception e)
+       {
+           System.out.println(e);
+       }
+   }
+   
+   public void change_password(String password1new) throws SQLException {
+       try {
+           DBConnection conn = new DBConnection();
+           Statement stmt = conn.connect().createStatement();
+           String query = "update user_info set user_password = '"+password1new+"' where uid= '"+ JavaFXMLTest.user_id +"' ";;
+           stmt.executeUpdate(query);
+       }
+       catch(Exception e)
+       {
+           System.out.println(e);
+       }
+   }
+   
     
 }
