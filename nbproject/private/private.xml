@@ -3,20 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Dharmendra/SOOAD2017/src/javafxmltest/MyAccountController.java</file>
-            <file>file:/C:/Users/Dharmendra/SOOAD2017/src/javafxmltest/HomeController.java</file>
-            <file>file:/C:/Users/Dharmendra/SOOAD2017/src/javafxmltest/ElectricityController.java</file>
-            <file>file:/C:/Users/Dharmendra/SOOAD2017/src/javafxmltest/Register.fxml</file>
-            <file>file:/C:/Users/Dharmendra/SOOAD2017/src/javafxmltest/RechargeMobileController.java</file>
-            <file>file:/C:/Users/Dharmendra/SOOAD2017/src/javafxmltest/RegisterController.java</file>
-            <file>file:/C:/Users/Dharmendra/SOOAD2017/src/javafxmltest/ElectricityProvider.java</file>
-            <file>file:/C:/Users/Dharmendra/SOOAD2017/nbproject/jfx-impl.xml</file>
-            <file>file:/C:/Users/Dharmendra/SOOAD2017/src/javafxmltest/UpdateBalanceModel.java</file>
-            <file>file:/C:/Users/Dharmendra/SOOAD2017/src/javafxmltest/TransactionModel.java</file>
-            <file>file:/C:/Users/Dharmendra/SOOAD2017/src/javafxmltest/BankModel.java</file>
-            <file>file:/C:/Users/Dharmendra/SOOAD2017/src/javafxmltest/mobile.java</file>
-            <file>file:/C:/Users/Dharmendra/SOOAD2017/src/javafxmltest/UserModel.java</file>
-            <file>file:/C:/Users/Dharmendra/SOOAD2017/src/javafxmltest/SufficientUserBalace.java</file>
+            <file>file:/C:/Users/sanjay/Desktop/SOOAD2017/src/javafxmltest/myAccount.fxml</file>
+            <file>file:/C:/Users/sanjay/Desktop/SOOAD2017/src/javafxmltest/MyAccountController.java</file>
+            <file>file:/C:/Users/sanjay/Desktop/SOOAD2017/src/javafxmltest/HomeController.java</file>
+            <file>file:/C:/Users/sanjay/Desktop/SOOAD2017/src/javafxmltest/BankModel.java</file>
+            <file>file:/C:/Users/sanjay/Desktop/SOOAD2017/src/javafxmltest/TransactionModel.java</file>
+            <file>file:/C:/Users/sanjay/Desktop/SOOAD2017/src/javafxmltest/UserModel.java</file>
         </group>
     </open-files>
 </project-private>

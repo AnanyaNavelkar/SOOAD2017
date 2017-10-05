@@ -1,85 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmltest.MyAccountController">
   <children>
-      <Label fx:id="accountBalance" layoutX="417.0" layoutY="37.0" prefHeight="36.0" prefWidth="84.0" textAlignment="CENTER" textFill="#e90a0a">
+      <Label fx:id="accountBalance" layoutX="244.0" layoutY="401.0" prefHeight="36.0" prefWidth="84.0" textAlignment="CENTER" textFill="#e90a0a">
          <font>
             <Font size="17.0" />
          </font>
       </Label>
-      <Label layoutX="14.0" layoutY="28.0" prefHeight="53.0" prefWidth="388.0" text="The current balance in your EasyPayzee account is:">
+      <Label layoutX="14.0" layoutY="392.0" prefHeight="53.0" prefWidth="222.0" text="EasyPayzee Account Balance:">
          <font>
             <Font size="17.0" />
          </font>
       </Label>
-      <Label layoutX="14.0" layoutY="102.0" prefHeight="53.0" prefWidth="388.0" text="Your recent transactions are:">
+      <Label layoutX="244.0" layoutY="21.0" prefHeight="53.0" prefWidth="76.0" text="Welcome," textFill="BLUE">
          <font>
             <Font size="17.0" />
          </font>
       </Label>
-      <Label layoutX="42.0" layoutY="155.0" prefHeight="30.0" prefWidth="23.0" text="Rs">
+      <Label fx:id="username" layoutX="320.0" layoutY="21.0" prefHeight="53.0" prefWidth="91.0" textFill="#f40404">
          <font>
-            <Font size="13.0" />
+            <Font size="17.0" />
          </font>
       </Label>
-      <Label fx:id="amount" layoutX="77.0" layoutY="155.0" prefHeight="30.0" prefWidth="40.0" textFill="#f40202">
+      <Label layoutX="14.0" layoutY="86.0" prefHeight="36.0" prefWidth="102.0" text="Change username:" />
+      <Label layoutX="14.0" layoutY="110.0" prefHeight="46.0" prefWidth="146.0" text="Your password">
          <font>
-            <Font size="13.0" />
+            <Font size="15.0" />
          </font>
       </Label>
-      <Label fx:id="transactionType" layoutX="132.0" layoutY="152.0" prefHeight="36.0" prefWidth="95.0">
+      <JFXPasswordField fx:id="password" layoutX="202.0" layoutY="121.0" />
+      <Label layoutX="14.0" layoutY="146.0" prefHeight="46.0" prefWidth="146.0" text="New username">
          <font>
-            <Font size="13.0" />
+            <Font size="15.0" />
          </font>
       </Label>
-      <Label fx:id="whom" layoutX="249.0" layoutY="152.0" prefHeight="36.0" prefWidth="152.0" textFill="#f40303">
+      <Label layoutX="14.0" layoutY="249.0" prefHeight="36.0" prefWidth="102.0" text="Change password:" />
+      <Label layoutX="14.0" layoutY="268.0" prefHeight="46.0" prefWidth="146.0" text="Old password">
          <font>
-            <Font size="13.0" />
+            <Font size="15.0" />
          </font>
       </Label>
-      <Label layoutX="417.0" layoutY="155.0" prefHeight="30.0" prefWidth="23.0" text="on">
+      <JFXPasswordField fx:id="password1" layoutX="204.0" layoutY="279.0" />
+      <Label layoutX="14.0" layoutY="304.0" prefHeight="46.0" prefWidth="146.0" text="New password">
          <font>
-            <Font size="13.0" />
+            <Font size="15.0" />
          </font>
       </Label>
-      <Label fx:id="date" layoutX="440.0" layoutY="152.0" prefHeight="36.0" prefWidth="152.0" textFill="#f40303">
-         <font>
-            <Font size="13.0" />
-         </font>
-      </Label>
-      <Label layoutX="42.0" layoutY="185.0" prefHeight="30.0" prefWidth="23.0" text="Rs">
-         <font>
-            <Font size="13.0" />
-         </font>
-      </Label>
-      <Label fx:id="amount1" layoutX="77.0" layoutY="185.0" prefHeight="30.0" prefWidth="40.0" textFill="#f40202">
-         <font>
-            <Font size="13.0" />
-         </font>
-      </Label>
-      <Label fx:id="transactionType1" layoutX="132.0" layoutY="182.0" prefHeight="36.0" prefWidth="95.0">
-         <font>
-            <Font size="13.0" />
-         </font>
-      </Label>
-      <Label fx:id="whom1" layoutX="249.0" layoutY="182.0" prefHeight="36.0" prefWidth="152.0" textFill="#f40303">
-         <font>
-            <Font size="13.0" />
-         </font>
-      </Label>
-      <Label layoutX="417.0" layoutY="185.0" prefHeight="30.0" prefWidth="23.0" text="on">
-         <font>
-            <Font size="13.0" />
-         </font>
-      </Label>
-      <Label fx:id="date1" layoutX="451.0" layoutY="182.0" prefHeight="36.0" prefWidth="152.0" textFill="#f40303">
-         <font>
-            <Font size="13.0" />
-         </font>
-      </Label>
+      <JFXPasswordField fx:id="password1new" layoutX="204.0" layoutY="315.0" />
+      <Button layoutX="151.0" layoutY="192.0" mnemonicParsing="false" onAction="#changeUsername" prefHeight="25.0" prefWidth="102.0" text="Change" />
+      <Button layoutX="153.0" layoutY="350.0" mnemonicParsing="false" onAction="#changePassword" prefHeight="25.0" prefWidth="102.0" text="Change" />
+      <JFXTextField fx:id="usernameNew" layoutX="202.0" layoutY="157.0" />
   </children>
 </AnchorPane>
