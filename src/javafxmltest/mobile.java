@@ -40,7 +40,7 @@ public class mobile {
         u.reduceUserBalance(amt,JavaFXMLTest.user_id );
         
         TransactionModel t= new TransactionModel();
-        t.updateRechargeMobilePhone(amt, '-', "Recharge Mobile");
+        t.updateRechargeMobilePhone(amt, '-', "rechargeMobile");
         
         stmt.executeUpdate(insertRecord);
         

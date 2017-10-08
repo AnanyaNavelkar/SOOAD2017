@@ -5,10 +5,12 @@
  */
 package javafxmltest;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 import javafx.scene.control.Alert;
 
@@ -89,6 +91,22 @@ public class TransactionModel {
                 + "values('" + JavaFXMLTest.user_id + "', '" + amount + "', '" +service_type+ "','" +type+ "', '" +formatted+ "')");
                 stmt1.executeUpdate(transactionUpdate);
     }
+      
+      public ResultSet getAllTransactions() throws SQLException { 
+          DBConnection conn =new DBConnection();
+          Statement stmt=conn.connect().createStatement();
+          ResultSet rs = stmt.executeQuery("select * from transaction where uid='" +JavaFXMLTest.user_id+ "'");
+          
+          return rs;
+      }
+      
+      public ResultSet getSpecificTransactions(String serviceType) throws SQLException { 
+          DBConnection conn =new DBConnection();
+          Statement stmt=conn.connect().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+          ResultSet rs = stmt.executeQuery("select * from transaction where uid='" +JavaFXMLTest.user_id+ "' and service_type='" +serviceType+ "'");
+          
+          return rs;
+      }
    
 }
     

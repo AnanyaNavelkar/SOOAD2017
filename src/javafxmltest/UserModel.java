@@ -180,5 +180,20 @@ public class UserModel {
        }
    }
    
+   public String retrieveUser(int uid) throws SQLException
+   {
+        DBConnection conn =new DBConnection();   
+        Statement stmt=conn.connect().createStatement();
+        ResultSet rs = stmt.executeQuery("select * from user_info where uid='" +uid+ "'");
+        String name = new String();
+        while(rs.next())
+        {
+            name = rs.getString("user_name");
+            
+        }
+        
+        return name;
+   }
+   
     
 }

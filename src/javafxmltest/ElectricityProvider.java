@@ -87,7 +87,7 @@ public class ElectricityProvider   {
              Updated = changeLabelText(updatedAmount);
              
              TransactionModel t= new TransactionModel();
-             t.updateElectricityBill(ipAmt, '-', "Pay Electricity Bill");
+             t.updateElectricityBill(ipAmt, '-', "payElectricityBill");
              if(updatedAmount==0)
              {
               String clear= "delete from electricity_provider where uid= '" +JavaFXMLTest.user_id +"' ";
