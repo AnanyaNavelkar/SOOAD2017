@@ -47,7 +47,7 @@ public class bookMovie {
   public static void main(String[] args) throws IOException, JSONException {
     
 JSONObject json = readJsonFromUrl("https://api.themoviedb.org/3/movie/now_playing?api_key=e7554cfe67c93eb4083ec5af0b75cce3&language=en-US&page=1&region=IN");
-// System.out.println(json.toString());
+ System.out.println(json.toString());
     System.out.println(json.get("results"));
   }
 }

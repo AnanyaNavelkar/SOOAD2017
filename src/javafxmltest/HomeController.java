@@ -66,11 +66,9 @@ public class HomeController {
   }
   @FXML
   void Logout(ActionEvent event) throws IOException {
-
-       //switchscene("Register.fxml");
        JavaFXMLTest j= new JavaFXMLTest();
-       j.start(JavaFXMLTest.stage);
-       popupLogout();
+        j.gotoRegister();       
+        popupLogout();
 
   }
   @FXML

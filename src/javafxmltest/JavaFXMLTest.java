@@ -34,7 +34,7 @@ public class JavaFXMLTest extends Application {
 
     public static int user_id;
 
-    private static BorderPane root = new BorderPane();
+    private static BorderPane root;
     
     public static BorderPane getRoot() {
         return root;
@@ -77,16 +77,17 @@ public class JavaFXMLTest extends Application {
 
         URL paneOneUrl = getClass().getResource("myAccount.fxml");
         AnchorPane paneOne = FXMLLoader.load(paneOneUrl);
-
+            BorderPane newroot = new BorderPane();
+            this.root=newroot;
         root.setTop(bar);
         root.setCenter(paneOne);
-
         Scene scene = new Scene(root, 640, 480);
+
         stage.setScene(scene);
 
     }
 
-    private void gotoRegister() {
+    public void gotoRegister() {
         try {
             RegisterController register = (RegisterController) replaceSceneContent("Register.fxml");
             register.setApp(this);
