@@ -3,11 +3,24 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/sanjay/Desktop/SOOAD2017/src/javafxmltest/TransactionController.java</file>
             <file>file:/C:/Users/sanjay/Desktop/SOOAD2017/src/javafxmltest/CheckHandler.java</file>
             <file>file:/C:/Users/sanjay/Desktop/SOOAD2017/src/javafxmltest/ElectricityProvider.java</file>
             <file>file:/C:/Users/sanjay/Desktop/SOOAD2017/src/javafxmltest/TransactionModel.java</file>
             <file>file:/C:/Users/sanjay/Desktop/SOOAD2017/src/javafxmltest/UserModel.java</file>
+=======
+            <file>file:/C:/Users/Ananya/Documents/NetBeansProjects/JavaFXMLTest/src/javafxmltest/Register.fxml</file>
+            <file>file:/C:/Users/Ananya/Documents/NetBeansProjects/JavaFXMLTest/src/javafxmltest/DBConnection.java</file>
+            <file>file:/C:/Users/Ananya/Documents/NetBeansProjects/JavaFXMLTest/src/javafxmltest/JavaFXMLTest.java</file>
+            <file>file:/C:/Users/Ananya/Documents/NetBeansProjects/JavaFXMLTest/src/javafxmltest/UpdatebalanceController.java</file>
+            <file>file:/C:/Users/Ananya/Documents/NetBeansProjects/JavaFXMLTest/src/javafxmltest/RegisterController.java</file>
+            <file>file:/C:/Users/Ananya/Documents/NetBeansProjects/JavaFXMLTest/src/javafxmltest/bookMovie.java</file>
+            <file>file:/C:/Users/Ananya/Documents/NetBeansProjects/JavaFXMLTest/src/javafxmltest/UserModel.java</file>
+            <file>file:/C:/Users/Ananya/Documents/NetBeansProjects/JavaFXMLTest/src/javafxmltest/TransactionModel.java</file>
+            <file>file:/C:/Users/Ananya/Documents/NetBeansProjects/JavaFXMLTest/src/javafxmltest/BankModel.java</file>
+            <file>file:/C:/Users/Ananya/Documents/NetBeansProjects/JavaFXMLTest/src/javafxmltest/MyAccountController.java</file>
+>>>>>>> 6fbe57d79ec452bbc115c2800dbb9e8a2c254b25
         </group>
     </open-files>
 </project-private>

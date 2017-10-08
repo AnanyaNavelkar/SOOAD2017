@@ -8,10 +8,16 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+<<<<<<< HEAD
     <jar href="JavaFXMLTest.jar" size="53745" download="eager" />
     <jar href="lib\jfoenix.jar" size="2374273" download="eager" />
     <jar href="lib\json-20170516.jar" size="57264" download="eager" />
+=======
+    <jar href="JavaFXMLTest.jar" size="49731" download="eager" />
+    <jar href="lib\jfoenix-1.8.0.jar" size="2370071" download="eager" />
+>>>>>>> 6fbe57d79ec452bbc115c2800dbb9e8a2c254b25
     <jar href="lib\mysql-connector-java-5.1.44-bin.jar" size="999635" download="eager" />
+    <jar href="lib\org.json.jar" size="48796" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="JavaFXMLTest" >
     <param name="requiredFXVersion" value="8.0+"/>
