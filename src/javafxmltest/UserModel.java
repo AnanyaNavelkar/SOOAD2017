@@ -5,6 +5,8 @@
  */
 package javafxmltest;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -25,7 +27,7 @@ public class UserModel {
         
         String sqluser_info = ("insert into user_info"
                 + "(user_name, user_mobile, user_email, user_password, user_balance)"
-                + "values('" + name + "', '" + mobile + "', '" + email + "','" + password + "', '" +100+ "')");
+                + "values('" + name + "', '" + mobile + "', '" + email + "','" + passwordEncrypt(password) + "', '" +100+ "')");
         
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("EasyPayzee");
@@ -35,6 +37,33 @@ public class UserModel {
         stmt.executeUpdate(sqluser_info);
         
     }
+   
+   public String passwordEncrypt(String passwordToHash) throws SQLException {
+       String generatedPassword = null;
+        try {
+            // Create MessageDigest instance for MD5
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            //Add password bytes to digest
+            md.update(passwordToHash.getBytes());
+            //Get the hash's bytes
+            byte[] bytes = md.digest();
+            //This bytes[] has bytes in decimal format;
+            //Convert it to hexadecimal format
+            StringBuilder sb = new StringBuilder();
+            for(int i=0; i< bytes.length ;i++)
+            {
+                sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
+            }
+            //Get complete hashed password in hex format
+            generatedPassword = sb.toString();
+        }
+        catch (NoSuchAlgorithmException e)
+        {
+            e.printStackTrace();
+        }
+        System.out.println(generatedPassword);
+        return generatedPassword;
+   }
    
    public void updateUserBalance(int amount, int uid) throws SQLException
    {
@@ -139,9 +168,10 @@ public class UserModel {
             ResultSet rs = stmt.executeQuery("select user_password from user_info where uid='" + JavaFXMLTest.user_id + "'");
             while(rs.next())
             {
+                String pwd = rs.getString("user_password");
                 System.out.println(rs.getString("user_password"));
                 System.out.println(password);
-               if(rs.getString("user_password").equals(password))
+               if(passwordEncrypt(pwd).equals(passwordEncrypt(password)))
                    return true;
                
             }

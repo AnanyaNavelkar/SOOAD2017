@@ -213,8 +213,10 @@ return 0;
         try {
             DBConnection conn = new DBConnection();
             Statement stmt = conn.connect().createStatement();
+            UserModel u =new UserModel();
+            String pwd = loginPassword.getText();
             
-            ResultSet rs = stmt.executeQuery("select * from user_info where user_name='" + loginUserName.getText() + "' and user_password='" + loginPassword.getText() + "'");
+            ResultSet rs = stmt.executeQuery("select * from user_info where user_name='" + loginUserName.getText() + "' and user_password='" + u.passwordEncrypt(pwd) + "'");
             int count = 0;
             while (rs.next()) {
                 JavaFXMLTest.user_id = rs.getInt("uid");

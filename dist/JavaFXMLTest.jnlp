@@ -8,16 +8,13 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="JavaFXMLTest.jar" size="59772" download="eager" />
-    <jar href="lib\dsn.jar" size="19175" download="eager" />
-    <jar href="lib\gimap.jar" size="14772" download="eager" />
-    <jar href="lib\jfoenix-1.8.0.jar" size="2374273" download="eager" />
-    <jar href="lib\json-20160810.jar" size="54495" download="eager" />
-    <jar href="lib\mail.jar" size="521052" download="eager" />
-    <jar href="lib\mailapi.jar" size="279899" download="eager" />
+    <jar href="JavaFXMLTest.jar" size="61940" download="eager" />
+    <jar href="lib\jfoenix.jar" size="2374273" download="eager" />
+    <jar href="lib\json-20170516.jar" size="57264" download="eager" />
+    <jar href="lib\mail-1.5.0-b01.jar" size="519087" download="eager" />
     <jar href="lib\mysql-connector-java-5.1.44-bin.jar" size="999635" download="eager" />
-    <jar href="lib\pop3.jar" size="44410" download="eager" />
-    <jar href="lib\smtp.jar" size="52898" download="eager" />
+    <jar href="lib\pop3-1.6.0.jar" size="47843" download="eager" />
+    <jar href="lib\smtp-1.4.5.jar" size="52787" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="JavaFXMLTest" >
     <param name="requiredFXVersion" value="8.0+"/>

@@ -31,29 +31,29 @@ public class BookMovieController implements Initializable {
      */public void bookTicketN()
      {
         scenechange();
-        s.getMoviename("Newton");
-        s.payNow();  
+       s.getMoviename("Newton"); 
+       //s.payNow();  
      
      }
      public void bookTicketI()
      {
          scenechange();           
          s.getMoviename("IT");
-         s.payNow();
+     //    s.payNow();
      
      }
      public void bookTicketC()
      {
          scenechange();
          s.getMoviename("Chef");
-         s.payNow();
+         //s.payNow();
      
      }
      public void bookTicketY()
      {
          scenechange();
          s.getMoviename("You are My Sunday");
-         s.payNow();
+       //  s.payNow();
      
      }
      public void scenechange()
@@ -69,6 +69,7 @@ public class BookMovieController implements Initializable {
         } catch(IOException e) {
            System.out.println(e);
           }   
+         
      }
     @Override
     public void initialize(URL url, ResourceBundle rb) {

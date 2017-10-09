@@ -5,6 +5,8 @@
  */
 package javafxmltest;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -26,7 +28,9 @@ public class BankModel {
          
         int randomNumBal = ThreadLocalRandom.current().nextInt(10000, 20001);
         int randomNumCvv = ThreadLocalRandom.current().nextInt(100, 1000);
-                
+        System.out.println("Your cvv is " + randomNumCvv);
+        //String cvvToString = Integer.toString(randomNumCvv);
+               
               try {
                   
               if(rs.next())
@@ -48,6 +52,33 @@ public class BankModel {
 
         
     }
+    
+    public String cvvEncrypt(String cvvToHash) throws SQLException {
+       String generatedCvv = null;
+        try {
+            // Create MessageDigest instance for MD5
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            //Add password bytes to digest
+            md.update(cvvToHash.getBytes());
+            //Get the hash's bytes
+            byte[] bytes = md.digest();
+            //This bytes[] has bytes in decimal format;
+            //Convert it to hexadecimal format
+            StringBuilder sb = new StringBuilder();
+            for(int i=0; i< bytes.length ;i++)
+            {
+                sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
+            }
+            //Get complete hashed password in hex format
+            generatedCvv = sb.toString();
+        }
+        catch (NoSuchAlgorithmException e)
+        {
+            e.printStackTrace();
+        }
+        System.out.println(generatedCvv);
+        return generatedCvv;
+   }
     
     public void updateBankBalance(int amount) throws SQLException
     {

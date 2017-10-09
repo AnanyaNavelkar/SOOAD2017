@@ -13,6 +13,8 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javafx.scene.control.TextField;
 
@@ -34,26 +36,46 @@ public class SeatController implements Initializable {
        @FXML
     private Label amount;
      
-       String mName;      
+    static String mName;      
+    theatre t= new theatre();
     public void getMoviename(String name)
     {
     
      mName=name;
-      
+     //movieName.getText();
+    // movieName.setText(mName);
+    
       //amount.setText("random");
+    }
+    public void setMovie(){
+    //    movieName.setText(mName);   
     }
     public void payNow()
     {
-      System.out.println("Movie chosen is"+mName);
-      movieName.setText(mName);
-    
-      amount.setText("");
-      theatre t= new theatre();
-      t.bookShow(number.getText(),seatNumber.getText());
+      try{
+        
+    // movieName.setText(mName);
+   
+      
+      t.showAmount(number.getText(),seatNumber.getText());
+      // System.out.println("Hi");
+      
+      
+      }
+      catch(Exception e)
+      {
+        System.out.println(e);
+      }
+    }
+    public void bookNow() throws SQLException
+    {
+    //System.out.println("Hi");
+    System.out.println("Movie chosen is "+mName);
+    t.bookShow(mName,number.getText(),seatNumber.getText());
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+      
     }    
     
 }

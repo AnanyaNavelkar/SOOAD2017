@@ -70,10 +70,11 @@ public class TransactionController implements Initializable {
                     String name = u.retrieveUser(rs.getInt("uid2"));
                     sb.append("You paid a sum of Rs " + rs.getInt("amount") + " to " + name + " from your EasyPayzee account on " + rs.getDate("date") + "\n\n");
                 }
-                else if(rs.getString("service_type").equals("bookMovie"))
+                else if(rs.getString("service_type").equals("bookedMovie"))
                 {
+                     sb.append("You booked a movie ticket/s of Rs " + rs.getInt("amount") + " from your EasyPayzee account on " + rs.getDate("date") + "\n\n");
 
-                }
+                }       
                 transactions.setText(sb.toString());
                 
 //            }
@@ -130,6 +131,19 @@ public class TransactionController implements Initializable {
             }
             
         }
+        
+        else if(i == 4)
+        {
+            String serviceType = "bookedMovie";
+            ResultSet rs = t.getSpecificTransactions(serviceType);
+          
+          while(rs.next())
+          {
+//              System.out.println(rs.getInt("amount"));
+             sb1.append("You booked a movie ticket/s of Rs " + rs.getInt("amount") + " from your EasyPayzee account on " + rs.getDate("date") + "\n\n");
+
+          }
+        }
 
         else
             showAllTransactions();
@@ -161,7 +175,9 @@ public class TransactionController implements Initializable {
     }
     public void bookAMovieOnAction() throws SQLException
     {
-        showAllTransactions();
+        if(bookAMovie.isSelected())
+            checkHandler(4);
+//        showAllTransactions();
     }
     
     

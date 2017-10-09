@@ -99,7 +99,7 @@ public class UpdateBalanceModel implements Initializable {
             String formatted = format1.format(cal.getTime());
             String transactionUpdate = ("insert into transaction"
                 + "(uid, amount, service_type, type_of_tran, date)"
-                + "values('" + JavaFXMLTest.user_id + "', '" + Integer.parseInt(amount) + "', 'updateBalance','w', '" +formatted+ "')");
+                + "values('" + JavaFXMLTest.user_id + "', '" + Integer.parseInt(amount) + "', 'updateBalance','+', '" +formatted+ "')");
                 stmt1.executeUpdate(transactionUpdate);
         }
         catch(Exception e)

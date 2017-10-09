@@ -12,7 +12,7 @@
    <children>
       <ImageView fitHeight="330.0" fitWidth="579.0" layoutX="27.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:/C:/Users/Dharmendra/Pictures/Screenshots/layoutSeat.png" />
+            <Image url="file:/C:/Users/sanjay/Downloads/layoutSeat.png" />
          </image>
       </ImageView>
       <Label layoutX="37.0" layoutY="420.0" prefHeight="33.0" prefWidth="145.0" text="Number of Seats">
@@ -27,17 +27,13 @@
          </font>
       </Label>
       <JFXTextField fx:id="seatNumber" focusColor="#3a59b5" layoutX="458.0" layoutY="424.0" prefHeight="25.0" prefWidth="121.0" promptText="Choose from the plan" />
-      <Label layoutX="140.0" layoutY="475.0" prefHeight="33.0" prefWidth="236.0" text="Kindly make a payment of Rs">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
+    
       <Label id="amount" fx:id="amount" layoutX="393.0" layoutY="475.0" prefHeight="33.0" prefWidth="49.0">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <JFXButton fx:id="payNow" buttonType="RAISED" layoutX="278.0" layoutY="528.0" onAction="#payNow" prefHeight="40.0" prefWidth="97.0" ripplerFill="#6a7494" style="-fx-background-color: blue;" text="Pay Now" textFill="WHITE">
+      <JFXButton fx:id="payNow" buttonType="RAISED" layoutX="201.0" layoutY="523.0" onAction="#payNow" prefHeight="40.0" prefWidth="97.0" ripplerFill="#6a7494" style="-fx-background-color: blue;" text="Pay Now" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
@@ -47,5 +43,11 @@
             <Font size="11.0" />
          </font>
       </Label>
+      <JFXButton />
+      <JFXButton fx:id="bookNow" buttonType="RAISED" layoutX="320.0" layoutY="523.0" onAction="#bookNow" prefHeight="40.0" prefWidth="111.0" style="-fx-background-color: blue;" text="Book Now" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>
